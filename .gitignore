@@ -5,3 +5,5 @@
 *.tfvars.json
 *.pem
 .env
+app/venv/
+*.bkp

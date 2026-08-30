@@ -1,0 +1,27 @@
+services:
+
+  app:
+    build: .
+    ports:
+      - "5000:5000"
+    environment:
+      DB_HOST : db
+      DB_PORT : 3306
+      DB_NAME : login_db
+      DB_USER : appuser
+      DB_PASSWORD : appuserpassword 
+
+
+  db:
+   image: mysql:8.0
+   environment:
+     MYSQL_ROOT_PASSWORD : rootpassword
+     MYSQL_DATABASE      : login_db
+     MYSQL_USER          : appuser
+     MYSQL_PASSWORD : appuserpassword
+   volumes:
+     - mysqldata:/var/lib/mysql
+     - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+
+volumes:
+  mysqldata:
