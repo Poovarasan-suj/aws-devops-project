@@ -14,7 +14,7 @@ pipeline {
         }
         stage('build') {
             steps {
-               sh  'echo Building the application...'
+               sh  'docker build -t devops-flask:$BUILD_NUMBER ./app'
             }
         }
         stage('deploy') {
