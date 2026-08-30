@@ -7,18 +7,18 @@ services:
     environment:
       DB_HOST : db
       DB_PORT : 3306
-      DB_NAME : login_db
-      DB_USER : appuser
-      DB_PASSWORD : appuserpassword 
+      DB_NAME : ${MYSQL_DATABASE}
+      DB_USER : ${MYSQL_USER}
+      DB_PASSWORD : ${MYSQL_PASSWORD}
 
 
   db:
    image: mysql:8.0
    environment:
-     MYSQL_ROOT_PASSWORD : rootpassword
-     MYSQL_DATABASE      : login_db
-     MYSQL_USER          : appuser
-     MYSQL_PASSWORD : appuserpassword
+     MYSQL_ROOT_PASSWORD : ${MYSQL_ROOT_PASSWORD}
+     MYSQL_DATABASE      : ${MYSQL_DATABASE}
+     MYSQL_USER          : ${MYSQL_USER}
+     MYSQL_PASSWORD : ${MYSQL_PASSWORD}
    volumes:
      - mysqldata:/var/lib/mysql
      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
