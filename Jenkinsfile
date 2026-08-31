@@ -36,8 +36,15 @@ pipeline {
         
         stage('deploy') {
             steps {
-               sh  'echo Deploying the application...'
-            }
+                 sh  '''
+                  ssh sujith@192.168.56.103 "
+                  export IMAGE_TAG=$BUILD_NUMBER
+                  cd ~/aws-devops-project/app
+                  docker compose pull
+                  docker compose up -d 
+                "
+                '''
+             }
         }
     }
 }

@@ -1,7 +1,7 @@
 services:
 
   app:
-    build: .
+    image: poovarasane/aws-devops-project:${IMAGE_TAG}
     ports:
       - "5000:5000"
     environment:
