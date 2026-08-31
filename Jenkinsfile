@@ -36,8 +36,14 @@ pipeline {
         
         stage('deploy') {
             steps {
-                 sh  '''
+                withCredentials([usernamePassword(
+                credentialsId: 'dockerhub-creds',
+                usernameVariable: 'DOCKER_USER',
+                passwordVariable: 'DOCKER_TOKEN'
+            ) ]) {
+                sh  '''
                   ssh sujith@192.168.56.103 "
+                  echo '$DOCKER_TOKEN' | docker login -u '$DOCKER_USER' --password-stdin
                   export IMAGE_TAG=$BUILD_NUMBER
                   cd ~/aws-devops-project/app
                   docker compose pull
