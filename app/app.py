@@ -57,7 +57,7 @@ def home():
     <body>
         <div class="box">
             <h1>DevOps Login Application</h1>
-            <p>Version 2.0</p>
+            <p>Version 3.0</p>
             <a href="/login">
                 <button class="button">Login</button>
             </a>

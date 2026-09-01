@@ -2,6 +2,7 @@ services:
 
   app:
     image: poovarasane/aws-devops-project:${IMAGE_TAG}
+    restart: unless-stopped
     ports:
       - "5000:5000"
     environment:
@@ -14,6 +15,7 @@ services:
 
   db:
    image: mysql:8.0
+   restart: unless-stopped
    environment:
      MYSQL_ROOT_PASSWORD : ${MYSQL_ROOT_PASSWORD}
      MYSQL_DATABASE      : ${MYSQL_DATABASE}
