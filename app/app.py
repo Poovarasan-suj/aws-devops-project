@@ -112,3 +112,8 @@ def login():
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)
+
+
+###Function for our unit testing practice
+def calculate_total(price, quantity):
+    return price * quantity

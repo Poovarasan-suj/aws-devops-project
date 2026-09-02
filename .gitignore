@@ -7,3 +7,4 @@
 .env
 app/venv/
 *.bkp
+__pycache__/
