@@ -8,6 +8,8 @@ pipeline {
         }
         stage('Test') {
             steps {
+                sh 'echo Installing dependencies...'
+                sh 'pip install -r requirements.txt'
                 sh 'echo Running tests...'
                 sh 'pytest'
             }
