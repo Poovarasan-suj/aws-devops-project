@@ -19,6 +19,11 @@ pipeline {
                sh  'docker build -t devops-flask:$BUILD_NUMBER ./app'
             }
         }
+        stage('TrivyScan') {
+            steps {
+               sh  'trivy image --severity HIGH,CRITICAL --ignore-unfixed devops-flask:$BUILD_NUMBER'
+            }
+        }
         stage('push') {
             steps {
                 withCredentials([usernamePassword(
