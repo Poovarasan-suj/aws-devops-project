@@ -26,7 +26,7 @@ def home():
         <title>DevOps Login</title>
         <style>
             body {
-                background-color: lightblue;
+                background-color: lightgreen;
                 font-family: Arial, sans-serif;
                 text-align: center;
                 padding-top: 100px;
@@ -57,7 +57,7 @@ def home():
     <body>
         <div class="box">
             <h1>DevOps Login Application</h1>
-            <p>Version 3.0</p>
+            <p>Version 4.0</p>
             <a href="/login">
                 <button class="button">Login</button>
             </a>
